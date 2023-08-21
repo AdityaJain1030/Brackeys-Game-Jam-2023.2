@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 494753298}
   - component: {fileID: 494753297}
   - component: {fileID: 494753299}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1517,7 +1517,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 494753295}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e7c9b8599cc1219408315df5b79478be, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1556,7 +1556,8 @@ GameObject:
   - component: {fileID: 503134204}
   - component: {fileID: 503134203}
   - component: {fileID: 503134206}
-  - component: {fileID: 503134207}
+  - component: {fileID: 503134209}
+  - component: {fileID: 503134210}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1571,12 +1572,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503134202}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c9fc43df2fca4643882b0403d36a2e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Data: {fileID: 0}
+  Data: {fileID: 11400000, guid: 5759d6a660e3ac14dbd9a801bf9d7627, type: 2}
   _groundCheckPoint: {fileID: 552966755}
   _groundCheckSize: {x: 0.49, y: 0.03}
   _frontWallCheckPoint: {fileID: 1691564682}
@@ -1584,7 +1585,7 @@ MonoBehaviour:
   _wallCheckSize: {x: 0.25, y: 1}
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!212 &503134204
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1646,8 +1647,8 @@ Transform:
   m_GameObject: {fileID: 503134202}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.231, y: -0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.231, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1841963007}
@@ -1670,7 +1671,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1681,9 +1682,39 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &503134207
-CircleCollider2D:
+  m_Constraints: 4
+--- !u!114 &503134209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503134202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6659d54232c3c49854301807bf46bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 18
+  jumpForce: 20
+  maxAcceleration: 18
+  maxDeceleration: 18
+  gravity: 2
+  coyoteTime: 0.2
+  jumpInputBufferTime: 0.2
+  accelInAirMult: 1
+  deccelInAirMult: 1
+  jumpApexXAccelerationMult: 1.1
+  jumpApexXMaxSpeedMult: 1.1
+  jumpApexThreshold: 0
+  terminalVelocity: 0
+  rigidBody: {fileID: 503134206}
+  capsuleCollider: {fileID: 503134210}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!70 &503134210
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1715,8 +1746,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1823,7 +1854,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 11.798896
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
