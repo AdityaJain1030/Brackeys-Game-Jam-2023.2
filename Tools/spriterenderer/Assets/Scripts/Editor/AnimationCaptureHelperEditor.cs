@@ -39,9 +39,11 @@ public class AnimationCaptureHelperEditor : Editor
             var helper = (AnimationCaptureHelper)target;
             var targetProp = serializedObject.FindProperty("_target");
             var sourceClipProp = serializedObject.FindProperty("_sourceClip");
+            var vfxTargetProp = serializedObject.FindProperty("_vfxTarget");
 
             EditorGUILayout.PropertyField(targetProp);
             EditorGUILayout.PropertyField(sourceClipProp);
+            EditorGUILayout.PropertyField(vfxTargetProp);
 
             if (targetProp.objectReferenceValue == null
                 || sourceClipProp.objectReferenceValue == null)
