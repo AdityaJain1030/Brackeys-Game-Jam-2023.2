@@ -1696,7 +1696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 18
-  jumpForce: 20
+  jumpForce: 16
   maxAcceleration: 18
   maxDeceleration: 18
   gravity: 2

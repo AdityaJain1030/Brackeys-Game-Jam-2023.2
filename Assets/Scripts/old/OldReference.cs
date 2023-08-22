@@ -9,7 +9,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class OldPlayerMovement : MonoBehaviour
 {
 	//Scriptable object which holds all the player's movement parameters. If you don't want to use it
 	//just paste in all the parameters, though you will need to manuly change all references in this script
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
 	#region Variables
 	//Components
-    public Rigidbody2D rigidBody { get; private set; }
+    public Rigidbody2D RB { get; private set; }
 
 	//Variables control the various actions the player can perform at any time.
 	//These are fields which can are public allowing for other sctipts to read them
@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
 	{
-		rigidBody = GetComponent<Rigidbody2D>();
+		RB = GetComponent<Rigidbody2D>();
 	}
 
 	private void Start()
@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
 		#endregion
 
 		#region JUMP CHECKS
-		if (IsJumping && rigidBody.velocity.y < 0)
+		if (IsJumping && RB.velocity.y < 0)
 		{
 			IsJumping = false;
 
@@ -184,29 +184,29 @@ public class PlayerMovement : MonoBehaviour
 		{
 			SetGravityScale(0);
 		}
-		else if (rigidBody.velocity.y < 0 && _moveInput.y < 0)
+		else if (RB.velocity.y < 0 && _moveInput.y < 0)
 		{
 			//Much higher gravity if holding down
 			SetGravityScale(Data.gravityScale * Data.fastFallGravityMult);
 			//Caps maximum fall speed, so when falling over large distances we don't accelerate to insanely high speeds
-			rigidBody.velocity = new Vector2(rigidBody.velocity.x, Mathf.Max(rigidBody.velocity.y, -Data.maxFastFallSpeed));
+			RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFastFallSpeed));
 		}
 		else if (_isJumpCut)
 		{
 			//Higher gravity if jump button released
 			SetGravityScale(Data.gravityScale * Data.jumpCutGravityMult);
-			rigidBody.velocity = new Vector2(rigidBody.velocity.x, Mathf.Max(rigidBody.velocity.y, -Data.maxFallSpeed));
+			RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFallSpeed));
 		}
-		else if ((IsJumping || IsWallJumping || _isJumpFalling) && Mathf.Abs(rigidBody.velocity.y) < Data.jumpHangTimeThreshold)
+		else if ((IsJumping || IsWallJumping || _isJumpFalling) && Mathf.Abs(RB.velocity.y) < Data.jumpHangTimeThreshold)
 		{
 			SetGravityScale(Data.gravityScale * Data.jumpHangGravityMult);
 		}
-		else if (rigidBody.velocity.y < 0)
+		else if (RB.velocity.y < 0)
 		{
 			//Higher gravity if falling
 			SetGravityScale(Data.gravityScale * Data.fallGravityMult);
 			//Caps maximum fall speed, so when falling over large distances we don't accelerate to insanely high speeds
-			rigidBody.velocity = new Vector2(rigidBody.velocity.x, Mathf.Max(rigidBody.velocity.y, -Data.maxFallSpeed));
+			RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFallSpeed));
 		}
 		else
 		{
@@ -246,7 +246,7 @@ public class PlayerMovement : MonoBehaviour
     #region GENERAL METHODS
     public void SetGravityScale(float scale)
 	{
-		rigidBody.gravityScale = scale;
+		RB.gravityScale = scale;
 	}
     #endregion
 
@@ -257,7 +257,7 @@ public class PlayerMovement : MonoBehaviour
 		//Calculate the direction we want to move in and our desired velocity
 		float targetSpeed = _moveInput.x * Data.runMaxSpeed;
 		//We can reduce are control using Lerp() this smooths changes to are direction and speed
-		targetSpeed = Mathf.Lerp(rigidBody.velocity.x, targetSpeed, lerpAmount);
+		targetSpeed = Mathf.Lerp(RB.velocity.x, targetSpeed, lerpAmount);
 
 		#region Calculate AccelRate
 		float accelRate;
@@ -272,7 +272,7 @@ public class PlayerMovement : MonoBehaviour
 
 		#region Add Bonus Jump Apex Acceleration
 		//Increase are acceleration and maxSpeed when at the apex of their jump, makes the jump feel a bit more bouncy, responsive and natural
-		if ((IsJumping || IsWallJumping || _isJumpFalling) && Mathf.Abs(rigidBody.velocity.y) < Data.jumpHangTimeThreshold)
+		if ((IsJumping || IsWallJumping || _isJumpFalling) && Mathf.Abs(RB.velocity.y) < Data.jumpHangTimeThreshold)
 		{
 			accelRate *= Data.jumpHangAccelerationMult;
 			targetSpeed *= Data.jumpHangMaxSpeedMult;
@@ -281,7 +281,7 @@ public class PlayerMovement : MonoBehaviour
 
 		#region Conserve Momentum
 		//We won't slow the player down if they are moving in their desired direction but at a greater speed than their maxSpeed
-		if(Data.doConserveMomentum && Mathf.Abs(rigidBody.velocity.x) > Mathf.Abs(targetSpeed) && Mathf.Sign(rigidBody.velocity.x) == Mathf.Sign(targetSpeed) && Mathf.Abs(targetSpeed) > 0.01f && LastOnGroundTime < 0)
+		if(Data.doConserveMomentum && Mathf.Abs(RB.velocity.x) > Mathf.Abs(targetSpeed) && Mathf.Sign(RB.velocity.x) == Mathf.Sign(targetSpeed) && Mathf.Abs(targetSpeed) > 0.01f && LastOnGroundTime < 0)
 		{
 			//Prevent any deceleration from happening, or in other words conserve are current momentum
 			//You could experiment with allowing for the player to slightly increae their speed whilst in this "state"
@@ -290,17 +290,17 @@ public class PlayerMovement : MonoBehaviour
 		#endregion
 
 		//Calculate difference between current velocity and desired velocity
-		float speedDif = targetSpeed - rigidBody.velocity.x;
+		float speedDif = targetSpeed - RB.velocity.x;
 		//Calculate force along x-axis to apply to thr player
 
 		float movement = speedDif * accelRate;
 
 		//Convert this to a vector and apply to rigidbody
-		rigidBody.AddForce(movement * Vector2.right, ForceMode2D.Force);
+		RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
 
 		/*
 		 * For those interested here is what AddForce() will do
-		 * rigidBody.velocity = new Vector2(rigidBody.velocity.x + (Time.fixedDeltaTime  * speedDif * accelRate) / rigidBody.mass, rigidBody.velocity.y);
+		 * RB.velocity = new Vector2(RB.velocity.x + (Time.fixedDeltaTime  * speedDif * accelRate) / RB.mass, RB.velocity.y);
 		 * Time.fixedDeltaTime is by default in Unity 0.02 seconds equal to 50 FixedUpdate() calls per second
 		*/
 	}
@@ -328,10 +328,10 @@ public class PlayerMovement : MonoBehaviour
 		//This means we'll always feel like we jump the same amount 
 		//(setting the player's Y velocity to 0 beforehand will likely work the same, but I find this more elegant :D)
 		float force = Data.jumpForce;
-		if (rigidBody.velocity.y < 0)
-			force -= rigidBody.velocity.y;
+		if (RB.velocity.y < 0)
+			force -= RB.velocity.y;
 
-		rigidBody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+		RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
 		#endregion
 	}
 
@@ -347,15 +347,15 @@ public class PlayerMovement : MonoBehaviour
 		Vector2 force = new Vector2(Data.wallJumpForce.x, Data.wallJumpForce.y);
 		force.x *= dir; //apply force in opposite direction of wall
 
-		if (Mathf.Sign(rigidBody.velocity.x) != Mathf.Sign(force.x))
-			force.x -= rigidBody.velocity.x;
+		if (Mathf.Sign(RB.velocity.x) != Mathf.Sign(force.x))
+			force.x -= RB.velocity.x;
 
-		if (rigidBody.velocity.y < 0) //checks whether player is falling, if so we subtract the velocity.y (counteracting force of gravity). This ensures the player always reaches our desired jump force or greater
-			force.y -= rigidBody.velocity.y;
+		if (RB.velocity.y < 0) //checks whether player is falling, if so we subtract the velocity.y (counteracting force of gravity). This ensures the player always reaches our desired jump force or greater
+			force.y -= RB.velocity.y;
 
 		//Unlike in the run we want to use the Impulse mode.
 		//The default mode will apply are force instantly ignoring masss
-		rigidBody.AddForce(force, ForceMode2D.Impulse);
+		RB.AddForce(force, ForceMode2D.Impulse);
 		#endregion
 	}
 	#endregion
@@ -365,13 +365,13 @@ public class PlayerMovement : MonoBehaviour
 	{
 		//Works the same as the Run but only in the y-axis
 		//THis seems to work fine, buit maybe you'll find a better way to implement a slide into this system
-		float speedDif = Data.slideSpeed - rigidBody.velocity.y;	
+		float speedDif = Data.slideSpeed - RB.velocity.y;	
 		float movement = speedDif * Data.slideAccel;
 		//So, we clamp the movement here to prevent any over corrections (these aren't noticeable in the Run)
 		//The force applied can't be greater than the (negative) speedDifference * by how many times a second FixedUpdate() is called. For more info research how force are applied to rigidbodies.
 		movement = Mathf.Clamp(movement, -Mathf.Abs(speedDif)  * (1 / Time.fixedDeltaTime), Mathf.Abs(speedDif) * (1 / Time.fixedDeltaTime));
 
-		rigidBody.AddForce(movement * Vector2.up);
+		RB.AddForce(movement * Vector2.up);
 	}
     #endregion
 
@@ -396,12 +396,12 @@ public class PlayerMovement : MonoBehaviour
 
 	private bool CanJumpCut()
     {
-		return IsJumping && rigidBody.velocity.y > 0;
+		return IsJumping && RB.velocity.y > 0;
     }
 
 	private bool CanWallJumpCut()
 	{
-		return IsWallJumping && rigidBody.velocity.y > 0;
+		return IsWallJumping && RB.velocity.y > 0;
 	}
 
 	public bool CanSlide()
@@ -425,5 +425,3 @@ public class PlayerMovement : MonoBehaviour
 	}
     #endregion
 }
-
-// created by Dawnosaur :D
