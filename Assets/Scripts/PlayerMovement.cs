@@ -6,6 +6,7 @@
 	Feel free to use this in your own games, and I'd love to see anything you make!
  */
 
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -52,11 +53,15 @@ public class PlayerMovement : MonoBehaviour
 	[Header("Checks")] 
 	[SerializeField] private Transform _groundCheckPoint;
 	//Size of groundCheck depends on the size of your character generally you want them slightly small than width (for ground) and height (for the wall check)
-	[SerializeField] private Vector2 _groundCheckSize = new Vector2(0.49f, 0.03f);
+	[SerializeField] private Vector2 _groundCheckSize = new Vector2(0.7f, 0.03f);
 	[Space(5)]
 	[SerializeField] private Transform _frontWallCheckPoint;
 	[SerializeField] private Transform _backWallCheckPoint;
-	[SerializeField] private Vector2 _wallCheckSize = new Vector2(0.5f, 1f);
+	[SerializeField] private Vector2 _wallCheckSize = new Vector2(0.25f, 1.7f);
+	[Space(5)]
+	[SerializeField] private Transform _topLedgeCheck;
+	[SerializeField] private Transform _botLedgeCheck;
+	[SerializeField] private Vector2 _ledgeCheckSize = new Vector2(0.25f, 1.25f);
 
     [Header("Layers & Tags")]
 	[SerializeField] private LayerMask _groundLayer;
@@ -214,7 +219,23 @@ public class PlayerMovement : MonoBehaviour
 			SetGravityScale(Data.gravityScale);
 		}
 		#endregion
-    }
+    
+		#region LEDGE CHECK
+		//Ledge Check
+		if (!Physics2D.OverlapBox(_topLedgeCheck.position, _ledgeCheckSize, 0, _groundLayer) && Physics2D.OverlapBox(_botLedgeCheck.position, _ledgeCheckSize, 0, _groundLayer))
+		{
+			//If we are moving horizontal and the ledge check above us is not colliding with the ground layer but we are
+			//then we must be on a ledge
+			// if (Mathf.Abs(rigidBody.velocity.x) > 0)
+			{
+				//We set the player's y velocity to 0 so they don't keep moving upwards
+				rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0);
+				//We set the player's position to the ledge check's position + 
+				transform.position = (Vector2)_topLedgeCheck.position + transform.localScale.y/2 * Vector2.up;
+			}
+		}
+		#endregion
+	}
 
     private void FixedUpdate()
 	{
@@ -422,6 +443,9 @@ public class PlayerMovement : MonoBehaviour
 		Gizmos.color = Color.blue;
 		Gizmos.DrawWireCube(_frontWallCheckPoint.position, _wallCheckSize);
 		Gizmos.DrawWireCube(_backWallCheckPoint.position, _wallCheckSize);
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireCube(_topLedgeCheck.position, _ledgeCheckSize);
+		Gizmos.DrawWireCube(_botLedgeCheck.position, _ledgeCheckSize);
 	}
     #endregion
 }
