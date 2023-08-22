@@ -12,10 +12,6 @@ public class AnimationCaptureHelper : MonoBehaviour
     /// </summary>
     [SerializeField]
     private GameObject _target = null;
-
-    [SerializeField]
-    private GameObject _vfxTarget = null;
-
     /// <summary>
     /// The animation clip to capture.
     /// </summary>
@@ -45,8 +41,6 @@ public class AnimationCaptureHelper : MonoBehaviour
     /// </summary>
     [SerializeField]
     private Camera _captureCamera = null;
-
-    private ParticleSystem _particleSystem = null;
     /// <summary>
     /// Samples the animation clip onto the taret object.
     /// </summary>
@@ -83,17 +77,7 @@ public class AnimationCaptureHelper : MonoBehaviour
         var gridCellCount = SqrtCeil(numFrames);
         var atlasSize = new Vector2Int(_cellSize.x * gridCellCount, _cellSize.y * gridCellCount);
         var atlasPos = new Vector2Int(0, atlasSize.y - _cellSize.y);
-
-        float totalVFXTime = 0.0f;
-        float VFXTimeStep = 0.0f;
-        if (_vfxTarget != null) {
-            _particleSystem = _vfxTarget.GetComponent<ParticleSystem>();
-            totalVFXTime = _particleSystem.totalTime;
-            VFXTimeStep = totalVFXTime / numFrames;
-            Debug.LogWarning(VFXTimeStep);
-
-            _particleSystem.time = 0.0f;
-        }
+        
 
         if (atlasSize.x > 4096 || atlasSize.y > 4096)
         {
@@ -129,9 +113,6 @@ public class AnimationCaptureHelper : MonoBehaviour
         {
             for (_currentFrame = 0; _currentFrame < numFrames; _currentFrame++)
             {
-                if (_vfxTarget != null) {
-                    _particleSystem.Simulate(_currentFrame * 0.025f);
-                }
                 var currentTime = (_currentFrame / (float)numFrames) * _sourceClip.length;
                 SampleAnimation(currentTime);
                 yield return null;
