@@ -61,6 +61,22 @@ public class PlayerData : ScriptableObject
 	[Range(0.01f, 0.5f)] public float coyoteTime; //Grace period after falling off a platform, where you can still jump
 	[Range(0.01f, 0.5f)] public float jumpInputBufferTime; //Grace period after pressing jump where a jump will be automatically performed once the requirements (eg. being grounded) are met.
 	
+	[Space(20)]
+	
+	[Header("Oil")]
+	[Range(0.01f, 1f)] public float oilConsumptionRate; // how much oil is consumed per second
+	[Range(0.01f, 1f)] public float maxLightDim; // how much the light dims when oil is at 0.001
+	
+	[Space(5)]
+
+	[Header("Health")]
+	[Min(1)] public int maxHearts;
+	[HideInInspector] public int maxHealth;
+	[Min(1)] public int maxSurvivalTimeInDarkness;
+	[Min(1)] public int maxSurvivalTimeInFire;
+	[HideInInspector] public int secondsPerDamageInDarkness;
+	[HideInInspector] public int secondsPerDamageInFire;
+
 
 	//Unity Callback, called when the inspector updates
     private void OnValidate()
@@ -72,8 +88,8 @@ public class PlayerData : ScriptableObject
 		gravityScale = gravityStrength / Physics2D.gravity.y;
 
 		//Calculate are run acceleration & deceleration forces using formula: amount = ((1 / Time.fixedDeltaTime) * acceleration) / runMaxSpeed
-		runAccelAmount = (50 * runAcceleration) / runMaxSpeed;
-		runDeccelAmount = (50 * runDecceleration) / runMaxSpeed;
+		runAccelAmount = 50 * runAcceleration / runMaxSpeed;
+		runDeccelAmount = 50 * runDecceleration / runMaxSpeed;
 
 		//Calculate jumpForce using the formula (initialJumpVelocity = gravity * timeToJumpApex)
 		jumpForce = Mathf.Abs(gravityStrength) * jumpTimeToApex;
@@ -82,5 +98,9 @@ public class PlayerData : ScriptableObject
 		runAcceleration = Mathf.Clamp(runAcceleration, 0.01f, runMaxSpeed);
 		runDecceleration = Mathf.Clamp(runDecceleration, 0.01f, runMaxSpeed);
 		#endregion
+
+		maxHealth = maxHearts * 2;
+		secondsPerDamageInDarkness = maxHealth / maxSurvivalTimeInDarkness;
+		secondsPerDamageInFire = maxHealth / maxSurvivalTimeInFire;
 	}
 }
