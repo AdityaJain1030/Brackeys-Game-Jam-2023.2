@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool IsJumping { get; private set; }
 	public bool IsWallJumping { get; private set; }
 	public bool IsSliding { get; private set; }
+	public bool IsRunning { get; private set; }
 
 	//Timers (also all fields, could be private and a method returning a bool could be used)
 	public float LastOnGroundTime { get; private set; }
@@ -62,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private Transform _topLedgeCheck;
 	[SerializeField] private Transform _botLedgeCheck;
 	[SerializeField] private Vector2 _ledgeCheckSize = new Vector2(0.25f, 1.25f);
+	[SerializeField] private GameObject boundsChecksGameObject;
 
     [Header("Layers & Tags")]
 	[SerializeField] private LayerMask _groundLayer;
@@ -242,8 +244,12 @@ public class PlayerMovement : MonoBehaviour
 		//Handle Run
 		if (IsWallJumping)
 			Run(Data.wallJumpRunLerp);
-		else
+		else {
 			Run(1);
+		}
+
+		if (LastOnGroundTime > 0 && Mathf.Abs(_moveInput.x) > 0) IsRunning = true;
+		else IsRunning = false;
 
 		//Handle Slide
 		if (IsSliding)
@@ -329,9 +335,9 @@ public class PlayerMovement : MonoBehaviour
 	private void Turn()
 	{
 		//stores scale and flips the player along the x axis, 
-		Vector3 scale = transform.localScale; 
+		Vector3 scale = boundsChecksGameObject.transform.localScale; 
 		scale.x *= -1;
-		transform.localScale = scale;
+		boundsChecksGameObject.transform.localScale = scale;
 
 		IsFacingRight = !IsFacingRight;
 	}
