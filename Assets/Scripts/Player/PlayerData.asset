@@ -44,9 +44,9 @@ MonoBehaviour:
   jumpInputBufferTime: 0.2
   oilConsumptionRate: 1
   maxLightDim: 0.5
-  maxHearts: 0
-  maxHealth: 0
-  maxSurvivalTimeInDarkness: 0
-  maxSurvivalTimeInFire: 0
-  secondsPerDamageInDarkness: 0
-  secondsPerDamageInFire: 0
+  maxHearts: 5
+  maxHealth: 10
+  maxSurvivalTimeInDarkness: 7
+  maxSurvivalTimeInFire: 1
+  secondsPerDamageInDarkness: 1
+  secondsPerDamageInFire: 10
