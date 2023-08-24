@@ -39,13 +39,13 @@ public class PlayerBladeAnimation : BaseAnimation
         
         if (playerCombatScript.IsInwardSlashing)  {
             animator.SetTrigger("inwardSlash");
-            Debug.Log("INWARDS BLADE");
+            // Debug.Log("INWARDS BLADE");
         } else if (playerCombatScript.IsOutwardSlashing) {
             animator.SetTrigger("outwardSlash");
-            Debug.Log("OUTWARDS BLADE");
+            // Debug.Log("OUTWARDS BLADE");
         } else if (playerCombatScript.IsAcrossSlashing) {
             animator.SetTrigger("acrossSlash");
-            Debug.Log("MIDDLE BLADE");
+            // Debug.Log("MIDDLE BLADE");
         }
     }
 }
