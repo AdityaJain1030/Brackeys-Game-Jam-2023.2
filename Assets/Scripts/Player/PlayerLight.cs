@@ -33,6 +33,7 @@ public class PlayerLight : MonoBehaviour
         if (oilRemaining <= 0)
         {
             playerLight.intensity = 0;
+            oilRemaining = 0;
         }
         else
         {
