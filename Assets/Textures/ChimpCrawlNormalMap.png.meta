@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,658 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_0
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 1383
+        width: 114
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fce9dbf3c87fc44fa1921294517ef36
+      internalID: 395795067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_1
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 1383
+        width: 114
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f4c9a8776e784346b90de3f069f44da
+      internalID: 292645687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_2
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 1382
+        width: 125
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 196894ef7f9e7024db143c75c980e473
+      internalID: -1187846385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_3
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 1381
+        width: 132
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a02f963123c041349a01745ea25931a3
+      internalID: 2120667695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_4
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 1381
+        width: 137
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a816c5dacffe3da419b4a9d1e441423e
+      internalID: -50300219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_5
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1381
+        width: 136
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 308725d9c343c15449f0e18467249075
+      internalID: 60884921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_6
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1124
+        width: 132
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee2c1b7d17a12b748a355b7b2fa67dac
+      internalID: 939338373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_7
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 1122
+        width: 127
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1736574c76926d5418c4cc52d4ab5125
+      internalID: 884178234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_8
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 1122
+        width: 119
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5112004e7c3d2b445a80b45d7e5ff168
+      internalID: 136206808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_9
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 1121
+        width: 112
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9657cfe04caf9a54db712714ea1de23b
+      internalID: 758358734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_10
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 1122
+        width: 104
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 163a3fe12537b194fb1846b3fdb2145f
+      internalID: 1323891523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_11
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 1123
+        width: 105
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f570af057fe9ea64db4a8c29b0897280
+      internalID: -1718815906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_12
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 869
+        width: 106
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c019a3b64e5ed9c49b50f5423b302176
+      internalID: 682056990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_13
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 872
+        width: 107
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34dc557d0cbb3e34db4b346c7e10e0be
+      internalID: -370259991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_14
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 874
+        width: 107
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9efa8ee95252a1b44b5e4b75700e00d1
+      internalID: 1888919859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_15
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 876
+        width: 107
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa73d9e871651214a96f2868fe26762d
+      internalID: 2027214400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_16
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 876
+        width: 109
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95cb6915f11cbe44bb58f944aed89b01
+      internalID: -1757082945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_17
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 874
+        width: 122
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57f316ddc9894c1478040002d1fb88d5
+      internalID: -880453717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_18
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 618
+        width: 133
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba97b14366e76854fab9c3a6ba6c7321
+      internalID: 2044200569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_19
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 618
+        width: 140
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21927588f940e91459757f4096abeb14
+      internalID: -561566211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_20
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 616
+        width: 142
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf399198e7fb2e146abb3ba6c0ea1ec0
+      internalID: -2001798173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_21
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 615
+        width: 140
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e19b712d1ee66f244b5edbed5ca10909
+      internalID: 1054509702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_22
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 613
+        width: 136
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2b9968a0a1d93d4888b3249a3e55a11
+      internalID: -1459784715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_23
+      rect:
+        serializedVersion: 2
+        x: 1348
+        y: 612
+        width: 132
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 749d67643446718458a050dd12894343
+      internalID: -784927368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_24
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 356
+        width: 126
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 325d1087937f3574586856147fd53d76
+      internalID: 1082854640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_25
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 358
+        width: 119
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb7791bf21d11fc4da3148aacf34d1aa
+      internalID: -1725046829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_26
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 360
+        width: 114
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30fce29a00e4880458e3c56445ba3aed
+      internalID: -1389358286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_27
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 362
+        width: 113
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cecde1caa4a5df24d989596493c9dfc5
+      internalID: 639720958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_28
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 362
+        width: 114
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 126bc03e31b9a6845949320f37e40c0b
+      internalID: 2024848868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_29
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 361
+        width: 114
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f4efa9cdc5a7724094469e6a5adf9bf
+      internalID: -232258921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChimpCrawlNormalMap_30
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 104
+        width: 115
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49d269e6246d18e4e815c10b615badf7
+      internalID: 62107030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +783,38 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ChimpCrawlNormalMap_0: 395795067
+      ChimpCrawlNormalMap_1: 292645687
+      ChimpCrawlNormalMap_10: 1323891523
+      ChimpCrawlNormalMap_11: -1718815906
+      ChimpCrawlNormalMap_12: 682056990
+      ChimpCrawlNormalMap_13: -370259991
+      ChimpCrawlNormalMap_14: 1888919859
+      ChimpCrawlNormalMap_15: 2027214400
+      ChimpCrawlNormalMap_16: -1757082945
+      ChimpCrawlNormalMap_17: -880453717
+      ChimpCrawlNormalMap_18: 2044200569
+      ChimpCrawlNormalMap_19: -561566211
+      ChimpCrawlNormalMap_2: -1187846385
+      ChimpCrawlNormalMap_20: -2001798173
+      ChimpCrawlNormalMap_21: 1054509702
+      ChimpCrawlNormalMap_22: -1459784715
+      ChimpCrawlNormalMap_23: -784927368
+      ChimpCrawlNormalMap_24: 1082854640
+      ChimpCrawlNormalMap_25: -1725046829
+      ChimpCrawlNormalMap_26: -1389358286
+      ChimpCrawlNormalMap_27: 639720958
+      ChimpCrawlNormalMap_28: 2024848868
+      ChimpCrawlNormalMap_29: -232258921
+      ChimpCrawlNormalMap_3: 2120667695
+      ChimpCrawlNormalMap_30: 62107030
+      ChimpCrawlNormalMap_4: -50300219
+      ChimpCrawlNormalMap_5: 60884921
+      ChimpCrawlNormalMap_6: 939338373
+      ChimpCrawlNormalMap_7: 884178234
+      ChimpCrawlNormalMap_8: 136206808
+      ChimpCrawlNormalMap_9: 758358734
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
