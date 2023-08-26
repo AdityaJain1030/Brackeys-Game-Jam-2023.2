@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+    [SerializeField] public AudioSource swordSwooshSFX;
 	public bool IsInwardSlashing { get; private set; }
 	public bool IsOutwardSlashing { get; private set; }
 	public bool IsAcrossSlashing { get; private set; }
