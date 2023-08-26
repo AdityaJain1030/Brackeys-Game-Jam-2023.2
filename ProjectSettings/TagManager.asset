@@ -42,3 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: DarknessShader
+    uniqueID: 40909515
+    locked: 0
