@@ -112,19 +112,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: outwardSlash
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: acrossSlash
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -230,7 +230,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: AdventurerInwardSlashWithBladeSeparate
-  m_Speed: 3.8
+  m_Speed: 9
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 83087661854247196}
@@ -291,7 +291,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: AdventurerOutwardSlashWithBladeSeparate
-  m_Speed: 3.8
+  m_Speed: 5.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1809178906190684967}
@@ -318,7 +318,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: AdventurerMiddleSlashWithBladeSeparate
-  m_Speed: 3.8
+  m_Speed: 5.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -4922847186075705590}
