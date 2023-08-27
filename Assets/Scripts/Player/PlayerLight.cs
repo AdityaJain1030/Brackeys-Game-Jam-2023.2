@@ -6,9 +6,9 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerLight : MonoBehaviour
 {
-    public float oilRemaining { get; private set; } = 100;
+    public float oilRemaining { get; private set; } = 50;
     public PlayerData config;
-    public Light2D playerLight;
+    // public Light2D playerLight;
 
     private float secondsSinceLastOilLoss = 0;
     private float secondsPerOilDecrease;
@@ -17,7 +17,7 @@ public class PlayerLight : MonoBehaviour
     void Start()
     {
         secondsPerOilDecrease = config.oilConsumptionRate / 1;
-        maxLightIntensity = playerLight.intensity;
+        // maxLightIntensity = playerLight.intensity;
     }
 
     // Update is called once per frame
@@ -32,12 +32,13 @@ public class PlayerLight : MonoBehaviour
 
         if (oilRemaining <= 0)
         {
-            playerLight.intensity = 0;
+            // playerLight.intensity = 0;
+            // GameObject.Find("Lights").SetActive("False");
             oilRemaining = 0;
         }
         else
         {
-            playerLight.intensity = Mathf.Lerp(config.maxLightDim, maxLightIntensity, oilRemaining / 100);
+            // playerLight.intensity = Mathf.Lerp(config.maxLightDim, maxLightIntensity, oilRemaining / 100);
         }
 
         DrawOilToScreen();
@@ -46,5 +47,9 @@ public class PlayerLight : MonoBehaviour
     private void DrawOilToScreen()
     {
         
+    }
+
+    public void addOil(int amount) {
+        oilRemaining = Mathf.Max(100, oilRemaining + amount);
     }
 }
