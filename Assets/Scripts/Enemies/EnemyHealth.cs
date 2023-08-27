@@ -5,7 +5,9 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
 
-    [SerializeField] public float health { get; private set; }
+    [SerializeField] public float health;
+
+    [SerializeField] public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +19,14 @@ public class EnemyHealth : MonoBehaviour
     {
         
     }
-
-    private void OnTriggerEnter2D(Collider2D collision) 
-    {
+    
+    
+    public void inflictDamage(float damage) {
+        anim.SetTrigger("hurt");
+        health -= damage;
+        if (health < 0) {
+            health = 0.0f;
+            Destroy(gameObject);
+        }
     }
 }

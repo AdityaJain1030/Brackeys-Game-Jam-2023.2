@@ -35,13 +35,10 @@ public class PlayerAnimation : BaseAnimation
             spriteRenderer.material = materials[1];
         } else if (playerCombatScript.IsInwardSlashing) {
             spriteRenderer.material = materials[2];
-            Debug.Log(materials[2].name);
         } else if (playerCombatScript.IsOutwardSlashing) {
             spriteRenderer.material = materials[3];
-            Debug.Log(materials[3].name);
         } else if (playerCombatScript.IsAcrossSlashing) {
             spriteRenderer.material = materials[4];
-            Debug.Log(materials[4].name);
         } else if (animator.GetCurrentAnimatorStateInfo(0).IsName("AdventurerIdle")) {
             spriteRenderer.material = materials[0];
         }

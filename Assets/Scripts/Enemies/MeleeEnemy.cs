@@ -21,9 +21,11 @@ public class MeleeEnemy : MonoBehaviour
     
     private Animator anim;
 
-    private PlayerHealth playerHealth;
+    private PlayerHealth playerHealth = null;
 
     private EnemyPatrol enemyPatrol;
+    
+    private bool hitPlayer = false;
     
     private void Awake() {
         anim = GetComponent<Animator>();
@@ -61,11 +63,13 @@ public class MeleeEnemy : MonoBehaviour
         0, 
         playerLayer);
 
-        if (hit.collider != null) {
-            Debug.Log("COLLIDER != NULL");
+        if (hit.collider != null && hit.collider.tag == "Player") {
             playerHealth = hit.transform.GetComponent<PlayerHealth>();
+            // hitPlayer = true;
         }
-        return hit.collider != null;
+        // hitPlayer = falsjjkje;
+            // Debug.Log("COLLIDER != NULL");
+        return (hit.collider != null && hit.collider.tag == "Player");
     }
 
     public void OnDrawGizmos() {
@@ -85,4 +89,5 @@ public class MeleeEnemy : MonoBehaviour
             // Damage player
         }
     }
+
 }
