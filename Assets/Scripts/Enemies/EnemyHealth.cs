@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSounds : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] public AudioClip walkingClip;
+
+    [SerializeField] public float health { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +18,7 @@ public class PlayerSounds : MonoBehaviour
         
     }
 
-    public void footstep() {
-        
-    }
-     
-    public void swordSwoosh() {
-
+    private void OnTriggerEnter2D(Collider2D collision) 
+    {
     }
 }

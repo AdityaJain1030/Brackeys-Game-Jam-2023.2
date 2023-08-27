@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool IsWallJumping { get; private set; }
 	public bool IsSliding { get; private set; }
 	public bool IsRunning { get; private set; }
+	public bool IsDashing{ get; private set; }
 
 	//Timers (also all fields, could be private and a method returning a bool could be used)
 	public float LastOnGroundTime { get; private set; }
@@ -49,7 +50,9 @@ public class PlayerMovement : MonoBehaviour
 
 	private Vector2 _moveInput;
 	public float LastPressedJumpTime { get; private set; }
+	public float LastPressedDashTime { get; private set; }
 
+	private bool dashed = false;
 	//Set all of these up in the inspector
 	[Header("Checks")] 
 	[SerializeField] private Transform _groundCheckPoint;
@@ -89,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
 		LastOnWallLeftTime -= Time.deltaTime;
 
 		LastPressedJumpTime -= Time.deltaTime;
+		LastPressedDashTime -= Time.deltaTime;
 		#endregion
 
 		#region INPUT HANDLER
@@ -106,6 +110,13 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.J))
 		{
 			OnJumpUpInput();
+		}
+
+		if (Input.GetKeyDown(KeyCode.LeftShift) && LastPressedDashTime < 0) {
+			// rigidBody.AddForce(5000.0f * Vector2.right * Mathf.Sign(_moveInput.x), ForceMode2D.Impulse);
+			Vector2 currVel = rigidBody.velocity;
+			rigidBody.velocity = new Vector2(5 * Mathf.Sign(_moveInput.x), 0);
+			LastPressedDashTime = 1.0f;
 		}
 		#endregion
 
@@ -155,6 +166,10 @@ public class PlayerMovement : MonoBehaviour
 				_isJumpFalling = false;
 		}
 
+		if (IsDashing && LastPressedDashTime > 5.0) {
+			IsDashing = false;
+		}
+
 		//Jump
 		if (CanJump() && LastPressedJumpTime > 0)
 		{
@@ -164,6 +179,7 @@ public class PlayerMovement : MonoBehaviour
 			_isJumpFalling = false;
 			Jump();
 		}
+
 		//WALL JUMP
 		else if (CanWallJump() && LastPressedJumpTime > 0)
 		{
@@ -175,6 +191,13 @@ public class PlayerMovement : MonoBehaviour
 			_lastWallJumpDir = (LastOnWallRightTime > 0) ? -1 : 1;
 			
 			WallJump(_lastWallJumpDir);
+		}
+		
+		// DASH
+
+		if (CanDash() && LastPressedJumpTime > 0) {
+			IsDashing = true;
+			Dash();
 		}
 		#endregion
 
@@ -267,6 +290,10 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (CanJumpCut() || CanWallJumpCut())
 			_isJumpCut = true;
+	}
+
+	public void OnDashInput() {
+		LastPressedDashTime = 5;
 	}
     #endregion
 
@@ -362,6 +389,15 @@ public class PlayerMovement : MonoBehaviour
 		#endregion
 	}
 
+	private void Dash() 
+	{
+		LastPressedDashTime = 0;
+
+		float force = 5.0f;
+		rigidBody.AddForce(Vector2.right * force, ForceMode2D.Impulse);
+
+	}
+
 	private void WallJump(int dir)
 	{
 		//Ensures we can't call Wall Jump multiple times from one press
@@ -414,6 +450,11 @@ public class PlayerMovement : MonoBehaviour
     {
 		return LastOnGroundTime > 0 && !IsJumping;
     }
+	
+	private bool CanDash() 
+	{
+		return !IsDashing;
+	}
 
 	private bool CanWallJump()
     {

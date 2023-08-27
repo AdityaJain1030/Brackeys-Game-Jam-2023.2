@@ -14,8 +14,8 @@ TagManager:
   - UI
   - Ground
   - EnemyDistractables
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 
@@ -42,6 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: DarknessShader
-    uniqueID: 40909515
+  - name: Darkness
+    uniqueID: 2034237217
     locked: 0

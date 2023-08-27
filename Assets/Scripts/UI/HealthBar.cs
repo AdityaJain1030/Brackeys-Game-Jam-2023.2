@@ -80,12 +80,14 @@ public class HealthBar : MonoBehaviour
             if (halfDelete) {
                 if (heartStates[i] == 1) {
                     image.sprite = heartFullToHalfFullSprite;
+                    Debug.Log("HITSTOPPING");
                     hitStop(hitStopDuration);
                     depleteCoroutine = waitForDepleteEffect(image, heartHalfFullSprite);
                     StartCoroutine(depleteCoroutine);
                     heartStates[i] = 0.5f;
                 } else {
                     image.sprite = heartHalfFullToEmptySprite;
+                    Debug.Log("HITSTOPPING");
                     hitStop(hitStopDuration);
                     depleteCoroutine = waitForDepleteEffect(image,empty);
                     StartCoroutine(depleteCoroutine);
@@ -95,12 +97,14 @@ public class HealthBar : MonoBehaviour
             else {
                 if (heartStates[i] == 1) {
                     healthBalls[i].GetComponent<Image>().sprite = heartFullToEmptySprite;
+                    Debug.Log("HITSTOPPING");
                     hitStop(hitStopDuration);
                     depleteCoroutine = waitForDepleteEffect(image,empty);
                     StartCoroutine(depleteCoroutine);
                     heartStates[i] = 0.0f;
                 } else if (heartStates[i] == 0.5) {
                     healthBalls[i].GetComponent<Image>().sprite = heartHalfFullToEmptySprite;
+                    Debug.Log("HITSTOPPING");
                     hitStop(hitStopDuration);
                     depleteCoroutine = waitForDepleteEffect(image,empty);
                     StartCoroutine(depleteCoroutine);

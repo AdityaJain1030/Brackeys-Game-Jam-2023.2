@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
-    void inflictDamage(float damage) {
+    public void inflictDamage(float damage) {
         health -= damage;
         if (health < 0) {
             healthBarScript.depleteHealth(health * -1);
